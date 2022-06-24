@@ -17,12 +17,17 @@
     </header>
     <section class="content">
       <nav class="side_nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/questions">Preguntas</a></li>
-        <li><a href="/news">Noticias</a></li>
-        <li><a href="/contact">Contacto</a></li>
-      </ul>
+        <% if @cart %>
+          <div id="cart" class="carts">
+            <%= render_if @cart && @cart.line_items.any?, @cart %>
+          </div>
+        <% end %>  
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/questions">Preguntas</a></li>
+          <li><a href="/news">Noticias</a></li>
+          <li><a href="/contact">Contacto</a></li>
+        </ul>
       </nav>
       <main class='<%= controller.controller_name %>'>
         <%= yield %>
