@@ -1,0 +1,25 @@
+<article>
+  <% if notice %>
+    <aside id="notice"><%= notice %></aside>
+  <% end %>
+  <h2>Tu Carrito de Compras</h2>
+  <table>
+    <%= render(cart.line_items) %>
+    <tfoot>
+      <tr>
+        <th colspan="2">Total:</th>
+        <td class="price"><%= number_to_currency(cart.total_price) %></td>
+      </tr>
+    </tfoot>
+  </table>
+  
+  <div class="actions">
+    <%= button_to 'Vaciar carrito', cart,
+      method: :delete,
+      data: { confirm: '¿Estás seguro?' } %>
+    <%= button_to 'Verificar', new_order_path,
+                  method: :get,
+                  class: "checkout"%>
+  </div>
+  
+</article>
