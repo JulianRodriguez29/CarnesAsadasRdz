@@ -26,11 +26,7 @@
     <%= form.email_field :email, size: 40 %>
   </div>
 
-  <div class="field">
-    <%= form.label :metodo__de_pago %>
-    <%= form.select :pay_type, Order.pay_types.keys,
-                    prompt: 'Seleccione un metodo de pago' %>
-  </div>
+  <div id='pay-type-component'></div>
 
   <div class="actions">
     <%= form.submit 'Realizar pedido' %>

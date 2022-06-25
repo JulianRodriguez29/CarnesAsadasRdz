@@ -64,6 +64,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pay_type_params
+    if order_params[:pay_type] == "Credit card"
+      params.require(:order).permit(:credit_card_number, :expiration_date)
+    elsif order_params[:pay_type] == "Cash"
+      params.require(:order).permit(:account_number)
+    else
+      {}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
