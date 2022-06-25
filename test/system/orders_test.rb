@@ -1,5 +1,5 @@
 require "application_system_test_case"
-
+include ActiveJob::TestHelper
 class OrdersTest < ApplicationSystemTestCase
   setup do
     @order = orders(:one)
@@ -47,5 +47,29 @@ class OrdersTest < ApplicationSystemTestCase
     assert_text "Order was successfully destroyed"
   end
 
- 
+  test "check routing number" do 
+    LineItem.delete_all
+    Order.delete_all
+    visit store_index_url
+
+    
+    perform_enqueued_jobs do
+      click_button "Relizar pedido"
+    end
+
+    orders = Order.all
+    assert_equal 1, orders.size
+    order = orders.first
+    assert_equal"Julian",     order.name
+    assert_equal "armeria 682", order.address
+    assert_equal "dave@example.com", order.email
+    assert_equal"Cash",    order.pay_type
+    assert_equal 1, order.line_items.size
+
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal ["dave@example.com"], mail.to
+    assert_equal 'josejulian_rodriguez@ucol.mx', mail[:from].value
+    assert_equal "Confirmación de pedido de Carnes Asadas Rodríguez", mail.subject
+  end
+    
 end
