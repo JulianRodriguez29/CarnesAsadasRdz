@@ -6,6 +6,19 @@ one:
   email: dave@example.org
   pay_type: Efectivo
 
+another_one:
+  name: Julian
+  address: armeria 682
+  email: julian@example.com
+  pay_type: Cash
+  created_at: <%= 2.days.ago %>
+
+other_customer:
+  name: Jose
+  address: armeria 682
+  email: julianjose63@gmail.com
+  pay_type: Cash
+
 two:
   name: MyString
   address: MyText
