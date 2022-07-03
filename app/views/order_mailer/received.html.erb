@@ -1,0 +1,10 @@
+<h3>Querid@ <%= @order.name %></h3>
+<p>
+  Gracias por su pedido reciente en Carnes Asadas Rodríguez.
+  Usted ordenó los siguientes artículos:
+</p>
+<table>
+  <tr><th colspan="2">Cant</th><th>Descripción</th></tr>
+<%= render @order.line_items -%>
+</table>
+<p>Le enviaremos un correo electrónico por separado cuando se envíe su pedido.</p>

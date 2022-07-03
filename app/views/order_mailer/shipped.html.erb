@@ -1,0 +1,8 @@
+<h3>Pedido de Carnes Asadas Rodríguez enviado</h3>
+<p>
+  Esto es solo para informarle que hemos enviado su pedido reciente:
+</p>
+<table>
+  <tr><th colspan="2">Cant</th><th>Descripción</th></tr>
+<%= render @order.line_items -%>
+</table>
