@@ -65,7 +65,7 @@ en:
       pay_prompt_html: "Select a payment method"
       submit: "Place Order"
       pay_types:
-        check: "Cash"
+        cash: "Cash"
         credit_card: "Credit Card"
       check_pay_type:
         account_number: "Quantity "
