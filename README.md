@@ -84,3 +84,6 @@ In this example I only added three products and due to time constraints the appl
 
 * Email of Response request handled
 ![Screenshot](./screenshots/email-of-response-requeste-handled.png)
+
+* Cronograma
+<img width="944" alt="cronograma" src="https://user-images.githubusercontent.com/50123134/187199242-4f0a655b-fff9-40f8-895c-a70bde7eca18.png">
